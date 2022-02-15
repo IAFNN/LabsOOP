@@ -1,9 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include <string>
-double firstNumber;
-double secondNumber;
-double result;
+int result;
 std::string firstNumberStr;
 std::string secondNumberStr;
 bool isFirstnumber = true;
@@ -73,23 +71,22 @@ void MainWindow::on_divideButton_clicked()
 
 void MainWindow::on_calculateButton_clicked()
 {
-    firstNumber = ui->firstNumber->text().toDouble();
-    secondNumber = ui->secondNumber->text().toDouble();
+    int firstNumber = ui->firstNumber->text().toInt();
+    int secondNumber = ui->secondNumber->text().toInt();
     switch(operation){
         case plus:
-            result = firstNumber + secondNumber;
+            ui->result->setText(*(new QString(std::to_string(firstNumber + secondNumber).c_str())));
             break;
         case minus:
-            result = firstNumber - secondNumber;
+            ui->result->setText(*(new QString(std::to_string(firstNumber - secondNumber).c_str())));
             break;
         case multiply:
-            result = firstNumber * secondNumber;
+            ui->result->setText(*(new QString(std::to_string(firstNumber * secondNumber).c_str())));
             break;
         case divide:
-            result = firstNumber / secondNumber;
+            ui->result->setText(*(new QString(std::to_string(((double)firstNumber) / secondNumber).c_str())));
             break;
     }
-    ui->result->setText(*(new QString(std::to_string(result).c_str())));
 }
 void MainWindow::on_clearButton_clicked(){
     ui->operation->setText(*(new QString("")));
