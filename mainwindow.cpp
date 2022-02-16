@@ -1,10 +1,9 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include <string>
-int result;
 std::string firstNumberStr;
 std::string secondNumberStr;
-bool isFirstnumber = true;
+bool isFirstNumber = true;
 enum Operations {
     plus,
     minus,
@@ -42,7 +41,7 @@ void MainWindow::on_plusButton_clicked()
 {
     ui->operation->setText("+");
     operation = plus;
-    isFirstnumber = false;
+    isFirstNumber = false;
 }
 
 
@@ -50,7 +49,7 @@ void MainWindow::on_minusButton_clicked()
 {
     ui->operation->setText("-");
     operation = minus;
-    isFirstnumber = false;
+    isFirstNumber = false;
 }
 
 
@@ -58,7 +57,7 @@ void MainWindow::on_multiplyButton_clicked()
 {
     ui->operation->setText("*");
     operation = multiply;
-    isFirstnumber = false;
+    isFirstNumber = false;
 }
 
 
@@ -66,7 +65,7 @@ void MainWindow::on_divideButton_clicked()
 {
     ui->operation->setText("/");
     operation = divide;
-    isFirstnumber = false;
+    isFirstNumber = false;
 }
 
 void MainWindow::on_calculateButton_clicked()
@@ -95,11 +94,11 @@ void MainWindow::on_clearButton_clicked(){
     ui->secondNumber->clear();
     firstNumberStr = "";
     secondNumberStr = "";
-    isFirstnumber = true;
+    isFirstNumber = true;
 }
 void MainWindow::on_buttonClicked() {
     QPushButton* button = (QPushButton*) sender();
-    if(isFirstnumber){
+    if(isFirstNumber){
         firstNumberStr.append(button->accessibleName().toStdString());
         ui -> firstNumber ->setText(*(new QString(firstNumberStr.c_str())));
     }else{
