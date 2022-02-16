@@ -100,9 +100,9 @@ void MainWindow::on_buttonClicked() {
     QPushButton* button = (QPushButton*) sender();
     if(isFirstNumber){
         firstNumberStr.append(button->accessibleName().toStdString());
-        ui -> firstNumber ->setText(*(new QString(firstNumberStr.c_str())));
+        ui -> firstNumber->setText(*(new QString(firstNumberStr.c_str())));
     }else{
         secondNumberStr.append(button->accessibleName().toStdString());
-        ui -> secondNumber ->setText(*(new QString(secondNumberStr.c_str())));
+        ui -> secondNumber->setText(*(new QString(secondNumberStr.c_str())));
     }
 }
