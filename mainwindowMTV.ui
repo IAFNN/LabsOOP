@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>MainWindowMTV</class>
+ <widget class="QMainWindow" name="MainWindowMTV">
   <property name="windowModality">
    <enum>Qt::NonModal</enum>
   </property>
@@ -16,8 +16,8 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="plusButton">
+  <widget class="QWidget" name="centralwidgetMTV">
+   <widget class="QPushButton" name="plusButtonMTV">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -30,7 +30,7 @@
      <string>+</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="multiplyButton">
+   <widget class="QPushButton" name="multiplyButtonMTV">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -46,7 +46,7 @@
      <string>*</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="minusButton">
+   <widget class="QPushButton" name="minusButtonMTV">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -59,7 +59,7 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="divideButton">
+   <widget class="QPushButton" name="divideButtonMTV">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -75,7 +75,7 @@
      <string>/</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="calculateButton">
+   <widget class="QPushButton" name="calculateButtonMTV">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -88,7 +88,7 @@
      <string>=</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="firstNumber">
+   <widget class="QLineEdit" name="firstNumberMTV">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -107,7 +107,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="secondNumber">
+   <widget class="QLineEdit" name="secondNumberMTV">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -123,7 +123,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="operation">
+   <widget class="QLabel" name="operationMTV">
     <property name="geometry">
      <rect>
       <x>114</x>
@@ -139,7 +139,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_2MTV">
     <property name="geometry">
      <rect>
       <x>247</x>
@@ -155,7 +155,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="result">
+   <widget class="QLabel" name="resultMTV">
     <property name="geometry">
      <rect>
       <x>287</x>
@@ -171,7 +171,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="clearButton">
+   <widget class="QPushButton" name="clearButtonMTV">
     <property name="geometry">
      <rect>
       <x>300</x>

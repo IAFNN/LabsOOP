@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include "mainwindowMTV.h"
+#include "./ui_mainwindowMTV.h"
 #include <string>
 std::string firstNumberStr;
 std::string secondNumberStr;
@@ -11,9 +11,9 @@ enum Operations {
     multiply
 };
 Operations operation;
-MainWindow::MainWindow(QWidget *parent)
+MainWindowMTV::MainWindowMTV(QWidget *parent)
         : QMainWindow(parent)
-        , ui(new Ui::MainWindow)
+        , ui(new Ui::MainWindowMTV)
 {
     ui->setupUi(this);
     this->setFixedSize(400, 500);
@@ -32,77 +32,77 @@ MainWindow::MainWindow(QWidget *parent)
     }
 }
 
-MainWindow::~MainWindow()
+MainWindowMTV::~MainWindowMTV()
 {
     delete ui;
 }
 
-void MainWindow::on_plusButton_clicked()
+void MainWindowMTV::on_plusButtonMTV_clicked()
 {
-    ui->operation->setText("+");
+    ui->operationMTV->setText("+");
     operation = plus;
     isFirstNumber = false;
 }
 
 
-void MainWindow::on_minusButton_clicked()
+void MainWindowMTV::on_minusButtonMTV_clicked()
 {
-    ui->operation->setText("-");
+    ui->operationMTV->setText("-");
     operation = minus;
     isFirstNumber = false;
 }
 
 
-void MainWindow::on_multiplyButton_clicked()
+void MainWindowMTV::on_multiplyButtonMTV_clicked()
 {
-    ui->operation->setText("*");
+    ui->operationMTV->setText("*");
     operation = multiply;
     isFirstNumber = false;
 }
 
 
-void MainWindow::on_divideButton_clicked()
+void MainWindowMTV::on_divideButtonMTV_clicked()
 {
-    ui->operation->setText("/");
+    ui->operationMTV->setText("/");
     operation = divide;
     isFirstNumber = false;
 }
 
-void MainWindow::on_calculateButton_clicked()
+void MainWindowMTV::on_calculateButtonMTV_clicked()
 {
-    int firstNumber = ui->firstNumber->text().toInt();
-    int secondNumber = ui->secondNumber->text().toInt();
+    int firstNumber = ui->firstNumberMTV->text().toInt();
+    int secondNumber = ui->secondNumberMTV->text().toInt();
     switch(operation){
         case plus:
-            ui->result->setText(*(new QString(std::to_string(firstNumber + secondNumber).c_str())));
+            ui->resultMTV->setText(*(new QString(std::to_string(firstNumber + secondNumber).c_str())));
             break;
         case minus:
-            ui->result->setText(*(new QString(std::to_string(firstNumber - secondNumber).c_str())));
+            ui->resultMTV->setText(*(new QString(std::to_string(firstNumber - secondNumber).c_str())));
             break;
         case multiply:
-            ui->result->setText(*(new QString(std::to_string(firstNumber * secondNumber).c_str())));
+            ui->resultMTV->setText(*(new QString(std::to_string(firstNumber * secondNumber).c_str())));
             break;
         case divide:
-            ui->result->setText(*(new QString(std::to_string(((double)firstNumber) / secondNumber).c_str())));
+            ui->resultMTV->setText(*(new QString(std::to_string(((double)firstNumber) / secondNumber).c_str())));
             break;
     }
 }
-void MainWindow::on_clearButton_clicked(){
-    ui->operation->setText(*(new QString("")));
-    ui->result->setText(*(new QString("")));
-    ui->firstNumber->clear();
-    ui->secondNumber->clear();
+void MainWindowMTV::on_clearButtonMTV_clicked(){
+    ui->operationMTV->setText(*(new QString("")));
+    ui->resultMTV->setText(*(new QString("")));
+    ui->firstNumberMTV->clear();
+    ui->secondNumberMTV->clear();
     firstNumberStr = "";
     secondNumberStr = "";
     isFirstNumber = true;
 }
-void MainWindow::on_buttonClicked() {
+void MainWindowMTV::on_buttonClicked() {
     QPushButton* button = (QPushButton*) sender();
     if(isFirstNumber){
         firstNumberStr.append(button->accessibleName().toStdString());
-        ui -> firstNumber->setText(*(new QString(firstNumberStr.c_str())));
+        ui -> firstNumberMTV->setText(*(new QString(firstNumberStr.c_str())));
     }else{
         secondNumberStr.append(button->accessibleName().toStdString());
-        ui -> secondNumber->setText(*(new QString(secondNumberStr.c_str())));
+        ui -> secondNumberMTV->setText(*(new QString(secondNumberStr.c_str())));
     }
 }
