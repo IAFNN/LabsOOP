@@ -63,7 +63,7 @@ void MainWindowMTV::on_multiplyButtonMTV_clicked()
 
 void MainWindowMTV::on_divideButtonMTV_clicked()
 {
-    ui->operationMTV->setText("/");
+    ui->operationMTV-> setText("/");
     operation = divide;
     isFirstNumber = false;
 }
