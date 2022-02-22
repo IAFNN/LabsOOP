@@ -33,4 +33,4 @@ private slots:
 private:
     Ui::MainWindowMTV *ui;
 };
-#endif // MAINWINDOW_H
+#endif
