@@ -7,7 +7,7 @@
 #include "saveas.h"
 #include "ui_saveAs.h"
 saveAs::saveAs(QWidget *parent, mainWindow* creator) :
-        QWidget(parent), ui(new Ui::saveAs) {
+        QDialog(parent), ui(new Ui::saveAs) {
     ui->setupUi(this);
     this->creator = creator;
     connect(ui->save, SIGNAL(clicked(bool)), this, SLOT(save()));

@@ -24,7 +24,7 @@ mainWindow::~mainWindow() {
 
 void mainWindow::open() {
     OpenFile* openFileWindow = new OpenFile(nullptr, this);
-    openFileWindow->show();
+    openFileWindow->exec();
 }
 void mainWindow::showOpened(std::string filepath){
     QPixmap* image = new QPixmap(filepath.c_str());
@@ -32,7 +32,7 @@ void mainWindow::showOpened(std::string filepath){
 }
 void mainWindow::createSaveAsWindow() {
     saveAsWindow = new class saveAs(nullptr, this);
-    saveAsWindow->show();
+    saveAsWindow->exec();
 }
 void mainWindow::saveToPath() {
     ui->image->pixmap()->save(saveAsWindow->filepath.c_str());

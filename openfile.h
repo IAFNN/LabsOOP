@@ -7,13 +7,13 @@
 
 #include <QWidget>
 #include "mainwindow.h"
-
+#include <QDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class OpenFile; }
 QT_END_NAMESPACE
 
-class OpenFile : public QWidget {
+class OpenFile : public QDialog {
 Q_OBJECT
 
 public:

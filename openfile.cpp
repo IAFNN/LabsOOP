@@ -9,7 +9,7 @@
 
 
 OpenFile::OpenFile(QWidget *parent, mainWindow* creator) :
-        QWidget(parent), ui(new Ui::OpenFile) {
+        QDialog(parent), ui(new Ui::OpenFile) {
     ui->setupUi(this);
     this->creator = creator;
     connect(ui->open, SIGNAL(clicked(bool)), this, SLOT(open()));

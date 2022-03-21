@@ -7,12 +7,12 @@
 
 #include <QWidget>
 #include "mainwindow.h"
-
+#include <QDialog>
 QT_BEGIN_NAMESPACE
 namespace Ui { class saveAs; }
 QT_END_NAMESPACE
 
-class saveAs : public QWidget {
+class saveAs : public QDialog {
 Q_OBJECT
 
 public:
