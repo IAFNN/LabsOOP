@@ -4,12 +4,12 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_mainWindow.h" resolved
 
-#include "mainwindow.h"
+#include "mainwindowMTV.h"
 #include "ui_mainWindow.h"
 #include <QPixmap>
 #include <QImage>
-#include "openfile.h"
-#include "saveas.h"
+#include "openfileMTV.h"
+#include "saveasMTV.h"
 saveAs* saveAsWindow;
 mainWindow::mainWindow(QWidget *parent) :
         QWidget(parent), ui(new Ui::mainWindow) {

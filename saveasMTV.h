@@ -2,11 +2,11 @@
 // Created by User on 19.03.2022.
 //
 
-#ifndef LAB3OOP_SAVEAS_H
-#define LAB3OOP_SAVEAS_H
+#ifndef LAB3OOP_SAVEASMTV_H
+#define LAB3OOP_SAVEASMTV_H
 
 #include <QWidget>
-#include "mainwindow.h"
+#include "mainwindowMTV.h"
 #include <QDialog>
 QT_BEGIN_NAMESPACE
 namespace Ui { class saveAs; }
@@ -28,4 +28,4 @@ private:
 };
 
 
-#endif //LAB3OOP_SAVEAS_H
+#endif //LAB3OOP_SAVEASMTV_H

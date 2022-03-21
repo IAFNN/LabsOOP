@@ -14,7 +14,7 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(Lab3OOP main.cpp mainwindow.cpp mainwindow.h mainwindow.ui openfile.h openfile.cpp openfile.ui saveas.h saveas.cpp saveas.ui)
+add_executable(Lab3OOP main.cpp mainwindowMTV.cpp mainwindowMTV.h mainwindow.ui openfileMTV.h openfileMTV.cpp openfile.ui saveasMTV.h saveasMTV.cpp saveas.ui)
 target_link_libraries(Lab3OOP
         Qt5::Core
         Qt5::Gui

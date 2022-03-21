@@ -2,11 +2,11 @@
 // Created by User on 20.03.2022.
 //
 
-#ifndef LAB3OOP_OPENFILE_H
-#define LAB3OOP_OPENFILE_H
+#ifndef LAB3OOP_OPENFILEMTV_H
+#define LAB3OOP_OPENFILEMTV_H
 
 #include <QWidget>
-#include "mainwindow.h"
+#include "mainwindowMTV.h"
 #include <QDialog>
 
 QT_BEGIN_NAMESPACE
@@ -28,4 +28,4 @@ private:
 };
 
 
-#endif //LAB3OOP_OPENFILE_H
+#endif //LAB3OOP_OPENFILEMTV_H
