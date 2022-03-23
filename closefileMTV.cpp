@@ -28,5 +28,7 @@ void closeFile::save() {
 }
 void closeFile::notSave() {
     close();
-    sender->close();
+    if(isBeforeClosing) {
+        sender->close();
+    }
 }

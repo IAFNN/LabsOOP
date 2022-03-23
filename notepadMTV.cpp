@@ -108,6 +108,7 @@ void Notepad::newFile() {
     }
     textEdit->clear();
     fclose(fileInUse);
+    setWindowTitle("Notepad");
 }
 void Notepad::open() {
     OpenFile* openFileWindow = new OpenFile(nullptr, this);
