@@ -6,7 +6,7 @@
 #define LAB5OOP_MAINWINDOW_H
 
 #include <QWidget>
-
+#include "Polynom.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,9 +19,17 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow() override;
-
 private:
     Ui::MainWindow *ui;
+    Polynom* polynom;
+private slots:
+    void enter();
+    void display();
+    void addPolynom();
+    void substractPolynom();
+    void derive();
+    void calculateIntegral();
+    void calculateRoots();
 };
 
 

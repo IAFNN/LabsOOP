@@ -4,6 +4,8 @@
 
 #include "Polynom.h"
 #include <cmath>
+#include <cctype>
+#include <sstream>
 
 double Polynom::calculateInX(double x) {
     return this->a * x * x + this->b * x + this->c;
@@ -64,4 +66,22 @@ Polynom::Polynom(Polynom *polynom) {
     this->a = polynom->a;
     this->b = polynom->b;
     this->c = polynom->c;
+}
+void Polynom::display(QLabel* polynomLabel) {
+    QString* polynom = new QString(QString::number(this->a) + "x ^ 2 + " + QString::number(this->b) + "x + " + QString::number(this->c) + " = 0");
+    polynomLabel->setText(*polynom);
+}
+void Polynom::enter(QLineEdit* polynomLineEdit) {
+    std::string polynom = polynomLineEdit->text().toStdString();
+    polynomLineEdit->clear();
+    std::string coefficients[3];
+    size_t pos;
+    for(int i = 0; i < 3; i++){
+        pos = polynom.find('+');
+        coefficients[i] = polynom.substr(0, pos);
+        polynom.erase(0, pos + 1);
+    }
+    this->a = std::stod(coefficients[0]);
+    this->b = std::stod(coefficients[1]);
+    this->c = std::stod(coefficients[2]);
 }

@@ -4,6 +4,8 @@
 
 #ifndef LAB5OOP_POLYNOM_H
 #define LAB5OOP_POLYNOM_H
+#include <QLabel>
+#include <QLineEdit>
 
 struct root{
     double x1;
@@ -31,6 +33,8 @@ public:
     double getA();
     double getB();
     double getC();
+    void display(QLabel* polynomLabel);
+    void enter(QLineEdit* polynomLineEdit);
 
 };
 
