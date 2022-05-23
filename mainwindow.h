@@ -6,22 +6,22 @@
 #define LAB9OOP_MAINWINDOW_H
 
 #include <QWidget>
-#include "Array.h"
+#include "ArrayMTV.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QWidget {
+class MainWindowMTV : public QWidget {
 Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    Array* array;
-    ~MainWindow() override;
+    explicit MainWindowMTV(QWidget *parent = nullptr);
+    ArrayMTV* array;
+    ~MainWindowMTV() override;
 
 private:
-    void update();
+    void updateData();
     Ui::MainWindow *ui;
     int idOfLastElement = 0;
 private slots:

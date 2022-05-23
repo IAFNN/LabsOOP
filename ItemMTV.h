@@ -2,11 +2,11 @@
 // Created by User on 01.05.2022.
 //
 
-#ifndef LAB9OOP_ITEM_H
-#define LAB9OOP_ITEM_H
+#ifndef LAB9OOP_ITEMMTV_H
+#define LAB9OOP_ITEMMTV_H
 #include <QString>
 
-class Item {
+class ItemMTV {
 private:
     int id;
     double price;
@@ -18,10 +18,10 @@ public:
     void setID(int id);
     void setPrice(double price);
     void setName(QString name);
-    Item() = default;
-    Item(int id, double price, QString name);
-    ~Item() = default;
+    ItemMTV() = default;
+    ItemMTV(int id, double price, QString name);
+    ~ItemMTV() = default;
 };
 
 
-#endif //LAB9OOP_ITEM_H
+#endif //LAB9OOP_ITEMMTV_H
