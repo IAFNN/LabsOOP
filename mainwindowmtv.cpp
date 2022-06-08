@@ -59,6 +59,7 @@ void MainWindowMTV::edit() {
 
 void MainWindowMTV::deleteElement() {
     ui->listWidget->takeItem(ui->listWidget->currentRow());
+    firstContainer.erase(firstContainer.begin() + ui->listWidget->currentRow());
 }
 
 void MainWindowMTV::print() {
@@ -97,7 +98,7 @@ void MainWindowMTV::refreshFirstContainer() {
     }
 }
 
-void MainWindowMTV::sortVector(std::vector<double> vector, bool increasingOrder) {
+void MainWindowMTV::sortVector(std::vector<double>& vector, bool increasingOrder) {
     for (int i = 0; i < vector.size(); i++){
         double extreme;
         std::vector<double>::iterator extremeElement;
@@ -112,7 +113,7 @@ void MainWindowMTV::sortVector(std::vector<double> vector, bool increasingOrder)
         }else{
             extreme = POSITIVE_INFINITY;
             for(int i2 = i; i2 < vector.size(); i2++){
-                if((*vector.begin() + i2) < extreme){
+                if(*(vector.begin() + i2) < extreme){
                    extreme = *(vector.begin() + i2);
                    extremeElement = vector.begin() + i2;
                 }
@@ -146,16 +147,27 @@ void MainWindowMTV::refreshSecondContainer() {
     }
 }
 
+void MainWindowMTV::refreshSecondContainer(std::vector<double> copy) {
+    ui->listWidget_2->clear();
+    std::stack<double> refreshed;
+    int temp = copy.size();
+    for(std::vector<double>::iterator iter = copy.end() - 1; iter != copy.begin() - 1; iter--){
+        refreshed.push(*iter);
+        ui->listWidget_2->insertItem(0, QString::number(*iter));
+    }
+    secondContainer = refreshed;
+}
+
 void MainWindowMTV::step13() {
     sortVector(firstContainer, true);
     refreshFirstContainer();
     std::vector<double> stackCopy;
     refreshSecondContainer();
-    for(int i = 0; ui->listWidget_2->count(); i++){
+    for(int i = 0; i < ui->listWidget_2->count(); i++){
         stackCopy.push_back(ui->listWidget_2->item(i)->text().toDouble());
     }
     sortVector(stackCopy, true);
-    refreshSecondContainer();
+    refreshSecondContainer(stackCopy);
 }
 
 void MainWindowMTV::step15() {

@@ -26,8 +26,9 @@ private:
     std::stack<double> secondContainer;
     std::vector<double> thirdContainer;
     void refreshFirstContainer();
-    void sortVector(std::vector<double> vector, bool increasingOrder);
+    void sortVector(std::vector<double>& vector, bool increasingOrder);
     void refreshSecondContainer();
+    void refreshSecondContainer(std::vector<double> copy);
 private slots:
     void put();
     void edit();
