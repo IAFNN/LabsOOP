@@ -6,7 +6,7 @@
 
 #include "mainwindow.h"
 #include "ui_MainWindow.h"
-
+#include <cstring>
 
 MainWindow::MainWindow(QWidget *parent) :
         QWidget(parent), ui(new Ui::MainWindow) {
@@ -68,6 +68,12 @@ void MainWindow::setNVector() {
             ui->exception->setText(QString(message.c_str()));
             return;
         }
+        if(strcmp("2147483647", iter->toStdString().c_str()) < 0 || strcmp("-2147483648", iter->toStdString().c_str()) < 0){
+            std::string message = "Integer overflow";
+            Expression::writeToLogFile(message);
+            ui->exception->setText(QString(message.c_str()));
+            return;
+        }
         numbersVector.push_back(iter->toDouble());
     }
     try {
@@ -89,6 +95,12 @@ void MainWindow::setMVector() {
             ui->exception->setText(QString(message.c_str()));
             return;
         }
+        if(strcmp("2147483647", iter.toStdString().c_str()) < 0 || strcmp("-2147483648", iter.toStdString().c_str()) < 0){
+            std::string message = "Integer overflow";
+            Expression::writeToLogFile(message);
+            ui->exception->setText(QString(message.c_str()));
+            return;
+        }
         numbersVector.push_back(iter.toDouble());
     }
     try {
@@ -106,6 +118,12 @@ void MainWindow::setKVector() {
             return std::isalpha(c);
         })){
             std::string message = "K vector contains letters";
+            Expression::writeToLogFile(message);
+            ui->exception->setText(QString(message.c_str()));
+            return;
+        }
+        if(strcmp("2147483647", iter.toStdString().c_str()) < 0 || strcmp("-2147483648", iter.toStdString().c_str()) < 0){
+            std::string message = "Integer overflow";
             Expression::writeToLogFile(message);
             ui->exception->setText(QString(message.c_str()));
             return;
