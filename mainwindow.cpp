@@ -68,12 +68,6 @@ void MainWindow::setNVector() {
             ui->exception->setText(QString(message.c_str()));
             return;
         }
-        if(strcmp("2147483647", iter->toStdString().c_str()) < 0 || strcmp("-2147483648", iter->toStdString().c_str()) < 0){
-            std::string message = "Integer overflow";
-            Expression::writeToLogFile(message);
-            ui->exception->setText(QString(message.c_str()));
-            return;
-        }
         numbersVector.push_back(iter->toDouble());
     }
     try {
@@ -91,12 +85,6 @@ void MainWindow::setMVector() {
             return std::isalpha(c);
         })){
             std::string message = "M vector contains letters";
-            Expression::writeToLogFile(message);
-            ui->exception->setText(QString(message.c_str()));
-            return;
-        }
-        if(strcmp("2147483647", iter.toStdString().c_str()) < 0 || strcmp("-2147483648", iter.toStdString().c_str()) < 0){
-            std::string message = "Integer overflow";
             Expression::writeToLogFile(message);
             ui->exception->setText(QString(message.c_str()));
             return;
@@ -122,12 +110,6 @@ void MainWindow::setKVector() {
             ui->exception->setText(QString(message.c_str()));
             return;
         }
-        if(strcmp("2147483647", iter.toStdString().c_str()) < 0 || strcmp("-2147483648", iter.toStdString().c_str()) < 0){
-            std::string message = "Integer overflow";
-            Expression::writeToLogFile(message);
-            ui->exception->setText(QString(message.c_str()));
-            return;
-        }
         numbersVector.push_back(iter.toDouble());
     }
     try {
@@ -149,6 +131,8 @@ void MainWindow::calculate() {
     } catch (LogarithmOfNegativeNumberException& e) {
         ui->exception->setText(QString(e.getMessage().c_str()));
     } catch(std::out_of_range& e){
+        ui->exception->setText(QString(e.what()));
+    } catch(std::overflow_error& e){
         ui->exception->setText(QString(e.what()));
     }
 }
