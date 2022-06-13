@@ -20,8 +20,8 @@ double Expression::calculate() {
     if(x - 10 == 0){
         throw DividingOnZeroException();
     }
-    float overflowTest = 0;
-    double nVectorSum = 0;
+    int overflowTest = 0;
+    short nVectorSum = 0;
     for(int i = 0; i < n; i++){
         if(i >= nVector.size()){
             std::string message = "Sum counting went out\nof bounds in N vector";
@@ -31,7 +31,7 @@ double Expression::calculate() {
         overflowTest += *(nVector.begin() + i);
         nVectorSum += *(nVector.begin() + i);
         if(overflowTest != nVectorSum){
-            std::string message = "Overflow occured during\ncalculations with" + std::to_string(overflowTest);
+            std::string message = "Overflow occured during\ncalculations with " + std::to_string(overflowTest);
             writeToLogFile(message);
             throw std::overflow_error(message);
         }
@@ -39,12 +39,12 @@ double Expression::calculate() {
     nVectorSum *= sqrt(x);
     overflowTest *= sqrt(x);
     if(overflowTest != nVectorSum){
-        std::string message = "Overflow occured during\ncalculations with" + std::to_string(overflowTest);
+        std::string message = "Overflow occured during\ncalculations with " + std::to_string(overflowTest);
         writeToLogFile(message);
         throw std::overflow_error(message);
     }
     overflowTest = 0;
-    double mVectorSum = 0;
+    short mVectorSum = 0;
     for(int i = 0; i < m; i++){
         if(i >= mVector.size()){
             std::string message = "Sum counting went out\nof bounds in M vector";
@@ -54,19 +54,19 @@ double Expression::calculate() {
         overflowTest += *(mVector.begin() + i);
         mVectorSum += *(mVector.begin() + i);
         if(overflowTest != mVectorSum){
-            std::string message = "Overflow occured during\ncalculations with" + std::to_string(overflowTest);
+            std::string message = "Overflow occured during\ncalculations with " + std::to_string(overflowTest);
             writeToLogFile(message);
             throw std::overflow_error(message);
         }
     }
     overflowTest *= log(100 - x);
     mVectorSum *= log(100 - x);
-    if(overflowTest != nVectorSum){
-        std::string message = "Overflow occured during\ncalculations with" + std::to_string(overflowTest);
+    if(overflowTest != mVectorSum){
+        std::string message = "Overflow occured during\ncalculations with " + std::to_string(overflowTest);
         writeToLogFile(message);
         throw std::overflow_error(message);
     }
-    double kVectorSum = 0;
+    short kVectorSum = 0;
     overflowTest = 0;
     for(int i = 0; i < k; i++){
         if(i >= kVector.size()){
@@ -77,22 +77,22 @@ double Expression::calculate() {
         overflowTest += *(kVector.begin() + i);
         kVectorSum += *(kVector.begin() + i);
         if(overflowTest != kVectorSum){
-            std::string message = "Overflow occured during\ncalculations with" + std::to_string(overflowTest);
+            std::string message = "Overflow occured during\ncalculations with " + std::to_string(overflowTest);
             writeToLogFile(message);
             throw std::overflow_error(message);
         }
     }
     overflowTest /= x - 10;
     kVectorSum /= x - 10;
-    if(overflowTest != nVectorSum){
-        std::string message = "Overflow occured during\ncalculations with" + std::to_string(overflowTest);
+    if(overflowTest != kVectorSum){
+        std::string message = "Overflow occured during\ncalculations with " + std::to_string(overflowTest);
         writeToLogFile(message);
         throw std::overflow_error(message);
     }
-    nVectorSum += mVectorSum + kVectorSum;
     overflowTest = nVectorSum + mVectorSum + kVectorSum;
+    nVectorSum += mVectorSum + kVectorSum;
     if(overflowTest != nVectorSum){
-        std::string message = "Overflow occured during\ncalculations with" + std::to_string(overflowTest);
+        std::string message = "Overflow occured during\ncalculations with " + std::to_string(overflowTest);
         writeToLogFile(message);
         throw std::overflow_error(message);
     }
